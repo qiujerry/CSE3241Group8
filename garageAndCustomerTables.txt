@@ -1,0 +1,32 @@
+
+# Creating table with foreign keys:
+ 
+#     CREATE TABLE table_name1  (  
+#	Column_Name_1 data type (size of the column_1),   
+#       Column_Name_2 data type (size of the column_2),   
+#   	......,  
+#       Column_Name_N data type (size of the column_N) FOREIGN KEY REFERENCES Table_Name2(Column_Name)  
+#     );  
+
+
+
+create table GARAGE (
+	Garage_ID int NOT NULL,
+	Name varchar(40) NOT NULL,
+	Address varchar(100) NOT NULL,
+	numSpaces int NOT NULL,
+	PRIMARY KEY (Garage_ID)
+);
+
+create table CUSTOMER (
+	Customer_ID int NOT NULL,
+	Name varchar(40) NOT NULL,
+	Login varchar(40) NOT NULL,
+	Password varchar(40) NOT NULL,
+	phoneNumber varchar(10),
+	PRIMARY KEY (Customer_ID)
+);
+
+insert into GARAGE (Garage_ID, Name, Address, numSpaces) VALUES (123456789, 'North Union Garage', '1780 South College Road', 500),(111222333, 'Lane Avenue Parking Garage', '2105 Neil Ave', 800),(987654321, '12th Avenue Garage', '340 West 12th Avenue', 600);
+
+insert into CUSTOMER (Customer_ID, Name, Login, Password, phoneNumber) VALUES (123123123, 'John Smith', 'smith12345', 'pwd44$!', '3208759904'),(567891234, 'Jamie Doe', 'doe55', 'jamiespwd', '5900345981'),(888777666, 'Mary Wills', 'maryw1992', 'will$0719', '6145298720'),(443322110, 'Mike Harvey', 'mike13', 'password123', '4409283419');
