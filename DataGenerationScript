@@ -1,4 +1,8 @@
-#Create tables
+# TO-DO LIST:
+# change customer primary key/other primary keys
+#
+# Create tables
+
 create table GARAGE (
 	garage_ID int NOT NULL,
 	name varchar(40) NOT NULL,
