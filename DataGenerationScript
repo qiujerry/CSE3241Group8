@@ -1,1 +1,27 @@
 #Create tables
+create table RESERVATION {
+	customerID int NOT NULL,
+	garageID int NOT NULL,
+	eventID int NOT NULL,
+	status boolean NOT NULL default TRUE,
+	Foreign key (garageID) references GARAGE (garageID),
+	Foreign key (customerID) references CUSTOMER (customerID),
+	Foreign key (eventID) references EVENT (eventID)
+	
+};
+
+Create table DISTANCE {
+	garageID int NOT NULL,
+ 	venueID int NOT NULL,
+	distance int NOT NULL,
+	Foreign key (garageID) references GARAGE (garageID),
+	Foreign key (venueID) references VENUE (venueID)
+};
+
+Create table FEE {
+	garageID int NOT NULL,
+	eventID int NOT NULL,
+	fee int NOT NULL,
+	Foreign key (garageID) references GARAGE (garageID),
+	Foreign key (eventID) references EVENT (eventID)
+};
