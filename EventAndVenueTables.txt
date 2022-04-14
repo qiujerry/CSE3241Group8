@@ -3,7 +3,8 @@ create table Event (
 	Venue_ID int NOT NULL,
 	Name varchar(40) NOT NULL,
 	EDate DATE,
-	PRIMARY KEY (Event_ID)
+	PRIMARY KEY (Event_ID),
+	FOREIGN KEY (Venue_ID) references VENUE (venue_ID)
 );
 
 create table Venue (
