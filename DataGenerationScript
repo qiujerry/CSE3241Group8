@@ -49,7 +49,7 @@ create table RESERVATION (
 Create table DISTANCE (
 	garage_ID int NOT NULL,
  	venue_ID int NOT NULL,
-	distance int NOT NULL,
+	distance double NOT NULL,
 	Foreign key (garage_ID) references GARAGE (garage_ID),
 	Foreign key (venue_ID) references VENUE (venue_ID)
 );
