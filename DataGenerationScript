@@ -68,7 +68,8 @@ Create table FEE (
 
 create table CANCELLATIONS (
 	event_ID int NOT NULL,
-	day DATE NOT NULL,
+	start_Date DATE NOT NULL,
+	end_Date DATE NOT NULL,
 	Foreign key day references EVENT (event_ID)
 );
 
