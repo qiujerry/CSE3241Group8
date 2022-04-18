@@ -6,12 +6,13 @@
 	$garageName= NULL;
 	$parkingNum= NULL;
 	$maxNum = NULL;
+	$con=mysqli_connect('localhost','root','*******','ParkingMaster'); //INSERT YOUR OWN PASSWORD TO RUN FILE
+	
 	//this is for setting max parking spaces in a given garage
 	if(isset($_POST['Submit'])) {
 		$flag = false;
 		$garageName = $_POST['subject'];
 		$parkingNum = $_POST['subject2'];
-		$con=mysqli_connect('localhost','root','*******','ParkingMaster'); //INSERT YOUR OWN PASSWORD TO RUN FILE
 		if (!$con) {	
 			die('Cannot connect'.mysqli_connect_error());
 		}
@@ -40,7 +41,6 @@
 	$inputDate = NULL;
 	$count = NULL;
 	if(isset($_POST['Submit2'])) {
-		$con=mysqli_connect('localhost','root','edpaquin1','ParkingMaster');
 		if (!$con) {	
 			die('Cannot connect'.mysqli_connect_error());
 		}
@@ -68,7 +68,6 @@
 
 	//this is for adding a new garage
 	if(isset($_POST['Submit3'])) {
-		$con=mysqli_connect('localhost','root','edpaquin1','ParkingMaster');
 		if (!$con) {	
 			die('Cannot connect'.mysqli_connect_error());
 		}
