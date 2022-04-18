@@ -43,7 +43,7 @@ create table RESERVATION (
 	reservation_Date DATE NOT NULL,
 	status varchar(20) NOT NULL,
 	Foreign key (garage_ID) references GARAGE (garage_ID),
-	Foreign key (customer_ID) references CUSTOMER (user_ID),
+	Foreign key (user_ID) references CUSTOMER (user_ID),
 	Foreign key (event_ID) references EVENT (event_ID)
 );
 
@@ -96,7 +96,6 @@ insert into FEE (garage_ID, event_ID, fee)
 	values 	(0001, 1001, 4.50), (0001, 1002, 3.50), (0001, 1003, 2.95),
 		(0002, 1001, 2.50), (0002, 1002, 3.99), (0002, 1003, 4.99),
 		(0003, 1001, 4.50), (0003, 1002, 2.99), (0003, 1003, 1.99);
-   
 
 
 
