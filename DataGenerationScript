@@ -29,22 +29,21 @@ create table EVENT (
 );
 
 create table CUSTOMER (
-	customer_ID int NOT NULL,
 	name varchar(40) NOT NULL,
-	login varchar(40) NOT NULL,
+	user_ID varchar(40) NOT NULL,
 	password varchar(40) NOT NULL,
 	phoneNumber varchar(10),
-	PRIMARY KEY (customer_ID)
+	PRIMARY KEY (user_ID)
 );
 
 create table RESERVATION (
-	customer_ID int NOT NULL,
+	user_ID varchar(40) NOT NULL,
 	garage_ID int NOT NULL,
 	event_ID int NOT NULL,
 	reservation_Date DATE NOT NULL,
 	status varchar(20) NOT NULL,
 	Foreign key (garage_ID) references GARAGE (garage_ID),
-	Foreign key (customer_ID) references CUSTOMER (customer_ID),
+	Foreign key (customer_ID) references CUSTOMER (user_ID),
 	Foreign key (event_ID) references EVENT (event_ID)
 );
 
@@ -77,8 +76,8 @@ create table CANCELLATIONS (
 insert into GARAGE (garage_ID, name, address, numSpaces) 
 	Values (0001, 'Ohio Union North Garage', '1780 College Road South', 500), (0002, 'Lane Avenue Parking Garage', '2105 Neil Ave', 800), (0003, '12th Avenue Garage', '340 West 12th Avenue', 600);
 
-insert into CUSTOMER (customer_ID, name, login, password, phoneNumber) 
-	Values (0001, 'John Smith', 'smith12345', 'pwd44$!', '3208759904'), (0002, 'Jamie Doe', 'doe55', 'jamiespwd', '5900345981'),(0003, 'Mary Wills', 'maryw1992', 'will$0719', '6145298720'),(0004, 'Mike Harvey', 'mike13', 'password123', '4409283419');
+insert into CUSTOMER (name, user_ID, password, phoneNumber) 
+	Values ('John Smith', 'smith12345', 'pwd44$!', '3208759904'), ('Jamie Doe', 'doe55', 'jamiespwd', '5900345981'),('Mary Wills', 'maryw1992', 'will$0719', '6145298720'),('Mike Harvey', 'mike13', 'password123', '4409283419');
 
 insert into VENUE (venue_ID, name, address) 
 	Values (0001, 'Schottenstein Center', '555 Borror Dr'), (0002, 'Ohio Union', '1739 North High Street'), (0003, 'The Shoe', '411 Woody Hayes Dr');
@@ -87,8 +86,8 @@ insert into EVENT (event_ID, venue_ID, name, start_Date, end_Date)
 	Values (1001, 1, 'Basketball', '2022-04-19', '2022-04-22'), (1002, 2, 'Movie', '2022-04-21', '2022-04-21'), (1003, 3, 'Concert', '2022-04-23', '2022-04-23');
 	
 	
-Insert into RESERVATION (customer_ID, garage_ID, event_ID, reservation_Date, status)
-	values (0001, 0001, 1001, '2022-04-20', "active"), (0004, 0001, 1002, '2022-04-21', "active"), (0003, 0002, 1003, '2022-04-23', "active"), (0003, 0003, 1002, '2022-04-21', "active"), (0002, 0001, 1001, '2022-04-19', "active");
+Insert into RESERVATION (user_ID, garage_ID, event_ID, reservation_Date, status)
+	values ('smith12345', 0001, 1001, '2022-04-20', "active"), ('mike13', 0001, 1002, '2022-04-21', "active"), ('maryw1992', 0002, 1003, '2022-04-23', "active"), ('maryw1992', 0003, 1002, '2022-04-21', "active"), ('doe55', 0001, 1001, '2022-04-19', "active");
 
 insert into DISTANCE (venue_ID, garage_ID, distance)
 	values (0001, 0001, 1.5), (0002, 0001, 0.1), (0003, 0001, 0.6),
