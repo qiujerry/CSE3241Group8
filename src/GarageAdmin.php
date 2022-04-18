@@ -18,11 +18,10 @@
 		}
 		else {
 			$maxNum = "select max(b.c) from
-						(select count(*) as c 
-							from reservation, event, garage
-							where event.event_id = reservation.event_id and reservation.garage_ID = garage.garage_ID and garage.name=\"$garageName\" and reservation.status=\"active\" 
-							group by event.edate
-							) as b";
+							(select count(*) as c from reservation, garage
+							where reservation.garage_id = garage.garage_id
+							and garage.name = \"$garageName\" and reservation.reservation_date > curDate()
+							group by reservation.reservation_date) as b";
 			//looks into the future to find the day with highest amount of reservations, assumes reducing max number of parking will be indefinite
 			$result = mysqli_query($con,$maxNum) or die(mysqli_connect_error());
 			$max2 = mysqli_fetch_array($result);
