@@ -11,7 +11,7 @@
 		$flag = false;
 		$garageName = $_POST['subject'];
 		$parkingNum = $_POST['subject2'];
-		$con=mysqli_connect('localhost','root','*******','ParkingMaster');
+		$con=mysqli_connect('localhost','root','*******','ParkingMaster'); //INSERT YOUR OWN PASSWORD TO RUN FILE
 		if (!$con) {	
 			die('Cannot connect'.mysqli_connect_error());
 		}
