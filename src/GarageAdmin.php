@@ -11,7 +11,7 @@
 		$flag = false;
 		$garageName = $_POST['subject'];
 		$parkingNum = $_POST['subject2'];
-		$con=mysqli_connect('localhost','root','edpaquin1','ParkingMaster');
+		$con=mysqli_connect('localhost','root','*******','ParkingMaster');
 		if (!$con) {	
 			die('Cannot connect'.mysqli_connect_error());
 		}
