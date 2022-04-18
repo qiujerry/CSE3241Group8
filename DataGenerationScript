@@ -22,7 +22,8 @@ create table EVENT (
 	event_ID int NOT NULL,
 	venue_ID int NOT NULL,
 	name varchar(40) NOT NULL,
-	eDate DATE,
+	start_Date DATE NOT NULL,
+	end_Date DATE NOT NULL,
 	PRIMARY KEY (event_ID),
 	FOREIGN KEY (venue_ID) references VENUE (venue_ID)
 );
@@ -74,8 +75,8 @@ insert into CUSTOMER (customer_ID, name, login, password, phoneNumber)
 insert into VENUE (venue_ID, name, address) 
 	Values (0001, 'Schottenstein Center', '555 Borror Dr'), (0002, 'Ohio Union', '1739 North High Street'), (0003, 'The Shoe', '411 Woody Hayes Dr');
 
-insert into EVENT (event_ID, venue_ID, name, eDate) 
-	Values (1001, 1, 'Basketball', '2022-04-19'), (1002, 2, 'Movie', '2022-04-21'), (1003, 3, 'Concert', '2022-04-23');
+insert into EVENT (event_ID, venue_ID, name, start_Date, end_Date) 
+	Values (1001, 1, 'Basketball', '2022-04-19', '2022-04-22'), (1002, 2, 'Movie', '2022-04-21', '2022-04-21'), (1003, 3, 'Concert', '2022-04-23', '2022-04-23');
 	
 Insert into RESERVATION (customer_ID, garage_ID, event_ID, status)
 	values (0001, 0001, 1001, "active"), (0004, 0001, 1002, "active"), (0003, 0002, 1003, "active"), (0003, 0003, 1002, "active"), (0002, 0001, 1001, "active");
