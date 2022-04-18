@@ -70,7 +70,7 @@ create table CANCELLATIONS (
 	event_ID int NOT NULL,
 	start_Date DATE NOT NULL,
 	end_Date DATE NOT NULL,
-	Foreign key day references EVENT (event_ID)
+	Foreign key (event_ID) references EVENT (event_ID)
 );
 
 #Data Generation
