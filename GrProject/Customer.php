@@ -43,7 +43,7 @@
                         (select garage_ID, count(concat(reservation.user_ID, reservation.event_ID, reservation.reservation_Date)) as bookCount from reservation, event
                                 where event.event_ID = reservation.event_ID
                                 and reservation.reservation_Date = \"$day\"
-				and reservation.status = "Active"
+				and reservation.status = \"Active\"
                                 group by garage_ID
                         ) as bookCount
                         right join garage
