@@ -3,6 +3,8 @@
 #
 # Create tables
 
+CREATE DATABASE ParkingMaster;
+
 create table GARAGE (
 	garage_ID int NOT NULL,
 	name varchar(40) NOT NULL,
@@ -33,6 +35,13 @@ create table CUSTOMER (
 	user_ID varchar(40) NOT NULL,
 	password varchar(40) NOT NULL,
 	phoneNumber varchar(10),
+	PRIMARY KEY (user_ID)
+);
+
+create table ADMINLOG (
+	user_ID varchar(40) NOT NULL,
+	password varchar(40) NOT NULL,
+	adType int NOT NULL,
 	PRIMARY KEY (user_ID)
 );
 
@@ -77,6 +86,10 @@ insert into GARAGE (garage_ID, name, address, numSpaces)
 insert into CUSTOMER (name, user_ID, password, phoneNumber) 
 	Values ('John Smith', 'smith12345', 'pwd44$!', '3208759904'), ('Jamie Doe', 'doe55', 'jamiespwd', '5900345981'),('Mary Wills', 'maryw1992', 'will$0719', '6145298720'),('Mike Harvey', 'mike13', 'password123', '4409283419');
 
+insert into ADMINLOG (user_ID, password, adType) 
+	Values ('VENADMIN', 'venadmin', 1),('PARADMIN', 'paradmin', 2);
+
+
 insert into VENUE (venue_ID, name, address) 
 	Values (0001, 'Schottenstein Center', '555 Borror Dr'), (0002, 'Ohio Union', '1739 North High Street'), (0003, 'The Shoe', '411 Woody Hayes Dr');
 
@@ -97,5 +110,9 @@ insert into FEE (garage_ID, event_ID, fee)
 		(0002, 1001, 2.50), (0002, 1002, 3.99), (0002, 1003, 4.99),
 		(0003, 1001, 4.50), (0003, 1002, 2.99), (0003, 1003, 1.99);
 
+create user loginuser@'%' identified by 'phpwd';
+grant SELECT, INSERT on ParkingMaster.CUSTOMER, ParkingMaster.ADMINLOG to loginuser@'%';
 
+create user aduser@'%' identified by 'phpwd';
+grant all on ParkingMaster.* to aduser@'%';
 
