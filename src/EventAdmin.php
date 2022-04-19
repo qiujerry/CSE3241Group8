@@ -1,7 +1,7 @@
 <html>
 <body> 
 <?php 
-    $con=mysqli_connect('localhost','root','*******','ParkingMaster');
+    $con=mysqli_connect('127.0.0.1','aduser','phpwd','ParkingMaster');
 	if(isset($_POST['Submit'])) {
 		if (!$con) {	
 			die('Cannot connect'.mysqli_connect_error());

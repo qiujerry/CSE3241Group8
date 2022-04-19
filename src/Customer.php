@@ -2,7 +2,7 @@
 <body>
 <?php 
 
-	$con=mysqli_connect('localhost','custuser','phpwd','ParkingMaster');
+	$con=mysqli_connect('127.0.0.1','custuser','phpwd','ParkingMaster');
 
 	if(isset($_POST['Submit'])) {
 	

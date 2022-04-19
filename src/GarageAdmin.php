@@ -6,7 +6,7 @@
 	$garageName= NULL;
 	$parkingNum= NULL;
 	$maxNum = NULL;
-	$con=mysqli_connect('localhost','root','*******','ParkingMaster'); //INSERT YOUR OWN PASSWORD TO RUN FILE
+	$con=mysqli_connect('127.0.0.1','aduser','phpwd','ParkingMaster'); //INSERT YOUR OWN PASSWORD TO RUN FILE
 	
 	//this is for setting max parking spaces in a given garage
 	if(isset($_POST['Submit'])) {
