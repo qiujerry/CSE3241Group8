@@ -93,7 +93,7 @@
                 $r2 = mysqli_fetch_array($result);
                 $eID = $r2['event_ID'];
 
-                $sql="select count(*) from CANCELLATION where CANCELLATION.event_ID=$eID CANCELLATION.start_Date <= \"$day\" AND CANCELLATION.end_Date >= \"$day\"";
+                $sql="select count(*) from CANCELLATIONS where CANCELLATIONS.event_ID=$eID AND CANCELLATIONS.start_Date <= \"$day\" AND CANCELLATIONS.end_Date >= \"$day\"";
                 $result = mysqli_query($con,$sql) or die(mysqli_connect_error());
                 $r3 = mysqli_fetch_array($result);
                 if($r['count(*)'] == 0 OR $r3['count(*)'] > 0) { //catching an incorrect date for a real event
