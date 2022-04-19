@@ -86,7 +86,16 @@
                 $sql="select count(*) from EVENT where EVENT.start_Date <= \"$day\" AND EVENT.end_Date >= \"$day\"";
                 $result = mysqli_query($con,$sql) or die(mysqli_connect_error());
                 $r = mysqli_fetch_array($result);
-                if($r['count(*)'] == 0) { //catching an incorrect date for a real event
+
+                $sql="select event_ID from EVENT where EVENT.name=\"$event_Name\"";
+                $result = mysqli_query($con,$sql) or die(mysqli_connect_error());
+                $r2 = mysqli_fetch_array($result);
+                $eID = $r2['event_ID'];
+
+                $sql="select count(*) from CANCELLATION where CANCELLATION.event_ID=$eID CANCELLATION.start_Date <= \"$day\" AND CANCELLATION.end_Date >= \"$day\"";
+                $result = mysqli_query($con,$sql) or die(mysqli_connect_error());
+                $r3 = mysqli_fetch_array($result);
+                if($r['count(*)'] == 0 OR $r3['count(*)'] > 0) { //catching an incorrect date for a real event
                     $incorrectDateFlag2 = true;
                 }
                 else {
