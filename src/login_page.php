@@ -3,8 +3,16 @@
 <body>
 
 <?php
-echo "My first PHP script!";
-?>
+
+    if(isset($_POST['uname']) && isset($_POST['psw'])) {
+        echo 'test';
+    }else{
+        $_POST['inc']='true';
+        header("/login.php"); 
+        exit;
+    }
+
+  ?>
 
 </body>
 </html>
