@@ -26,10 +26,10 @@
                 $result3 = mysqli_query($con,$sql3) or die(mysqli_connect_error());
                 $r3 = mysqli_fetch_array($result3);
                 $atype = $r3[0];
-                if($atype =='1'){
+                if($atype ==2){
                    header("Location: /GrProject/GarageAdmin.php");
                    exit;
-                }elseif($atype == 2){
+                }elseif($atype == 1){
                     header("Location: /GrProject/EventAdmin.php");
                     exit;
                 }
