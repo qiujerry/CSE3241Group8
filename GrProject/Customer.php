@@ -125,6 +125,11 @@
 
                           $sql="INSERT INTO RESERVATION values (\"$user_ID\", $gID, $eID, \"$day\", \"active\")";
                           $result = mysqli_query($con,$sql) or die(mysqli_connect_error());
+
+                          $sql="select fee from fee where event_ID=\"$eID\" and garage_ID = $gID";
+                          $result = mysqli_query($con,$sql) or die(mysqli_connect_error());
+                          $r = mysqli_fetch_array($result);
+                          $fee = $r[0];
                     }
                 }
             }
@@ -182,7 +187,7 @@
         Echo "Error: The garage you entered is not valid. Try using the tool above to find a garage, then attempt to make a reservation again.";
     }
     if(isset($successFlag)) {
-        Echo "Reservation has been made at $garageName for $event_Name on $day";
+        Echo "Reservation has been made at $garageName for $event_Name on $day for $fee dollars. Resevation number: " . $day . $eID . $gID . $user_ID;
     }
 ?>
 
