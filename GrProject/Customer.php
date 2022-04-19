@@ -136,6 +136,47 @@
 		}
 
 	}
+	
+if(isset($_POST['Submit3'])) {
+	
+		$event_Name = $_POST['eventName']
+		$day = $_POST['date'];
+        $garage_Name = $_POST['gName']
+	
+		if (!$con) {	
+			die('Cannot connect'.mysqli_connect_error());
+		}
+		else {
+            $user = $_POST['user_ID'];
+
+            $sql="select garage_ID from GARAGE where GARAGE.name = \"$garageName\" ";
+            $result = mysqli_query($con,$sql) or die(mysqli_connect_error());
+            $r = mysqli_fetch_array($result);
+            $gID = $r['garage_ID'];
+            $sql="select count(*) from RESERVATION where RESERVATION.user_ID=$user AND ($day-curdate() >= 3) AND RESERVATION.garage_ID=$gID";
+            $result = mysqli_query($con,$sql) or die(mysqli_connect_error());
+            $r = mysqli_fetch_array($result);
+            $count = $r['count(*)'];
+            $sql="select event_ID from EVENT where EVENT.name = \"$event_Name\"";
+            $result = mysqli_query($con,$sql) or die(mysqli_connect_error());
+            $r = mysqli_fetch_array($result);
+            $eID = $r['event_ID'];
+            $result = mysqli_query($con,$sql) or die(mysqli_connect_error());
+            $r = mysqli_fetch_array($result);
+            $count = $r['count(*)'];
+            if($count > 0) {
+                $sql="update RESERVATION set status=\"cancelled\" where RESERVATION.user_ID=$user and RESERVATION.garage_ID=$gID AND RESERVATION.event_ID=$eID";
+                $result = mysqli_query($con,$sql) or die(mysqli_connect_error());
+                $cancelFlag = true;
+            } 
+            else {
+                $dateFlag = true;
+            }
+
+        
+        
+        }
+}
 
 ?>
 <h3>Welcome, Customer</h3>
@@ -191,5 +232,23 @@
     }
 ?>
 
+<br><br><h4>Cancel a Reservation</h4>
+<form name="form" action="Customer.php" method="POST">
+    <label for="date">Date</label><br>
+	<input type="DATE" name="date" id="date"><br>
+	<label for="eventName">Event Name</label><br>
+	<input type="text" name="eventName" id="eventName"><br>
+    <label for="gName">Garage Name</label><br>
+	<input type="text" name="gName" id="gName"><br>
+	<input type="submit" name="Submit3" class="button" value="Submit">
+	</form>
+<?php
+    if(isset($cancelFlag)) {
+        Echo "Reservation cancelled for $event_Name on $day at $garage_Name";
+    }
+    if(isset($dateFlag)) {
+        Echo "It is too close to the date of the event, you cannot cancel";
+    }
+?>
 </body>
 </html>
