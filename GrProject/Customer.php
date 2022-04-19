@@ -228,7 +228,7 @@ if(isset($_POST['Submit3'])) {
         Echo "Error: The garage you entered is not valid. Try using the tool above to find a garage, then attempt to make a reservation again.";
     }
     if(isset($successFlag)) {
-        Echo "Reservation has been made at $garageName for $event_Name on $day for $fee dollars. Resevation number: " . $day . $eID . $gID . $user_ID;
+        Echo "Reservation has been made at $garageName for $event_Name on $day for $fee dollars. Resevation number: $day $eID $gID $user_ID";
     }
 ?>
 
