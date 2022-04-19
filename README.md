@@ -1,6 +1,11 @@
 # CSE3241Group8
 Instructions: 
 
+1) Run DataGenerationScript in mysql.
+2) put GrProject folder into location for apache server
+3) start apache
+4) navigate to /GrProject/login.php
+5) login or sign up with an account to begin
 
 
 How we divided the work: 

@@ -1,4 +1,3 @@
-
 <?php 
     $con=mysqli_connect('127.0.0.1','aduser','phpwd','ParkingMaster');
     if(isset($_POST['uname']) && isset($_POST['psw'])&&isset($_POST['pn']) && isset($_POST['name'])){
@@ -13,7 +12,7 @@
         if($r[0] == 0) {
             $sql2 = "insert into CUSTOMER (name, user_ID, password, phoneNumber) Values (\"$n\", \"$lname\", \"$pw\",\"$p\")";
             mysqli_query($con,$sql2);
-            header("Location: /login.php");
+            header("Location: /GrProject/login.php");
             exit;
         }else{
             $_POST['inc'] = 'true';
@@ -94,7 +93,7 @@ span.psw {
 <h2>Parking Master Sign Up</h2>
 
 
-<form action="/sup.php" method="POST">
+<form action="/GrProject/sup.php" method="POST">
   <div class="imgcontainer">
     <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar"> -->
     <p>Parking Master Sign Up</p>

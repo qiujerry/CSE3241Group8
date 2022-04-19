@@ -80,7 +80,7 @@ span.psw {
 
 </div>
 
-<form action="/login_page.php" method="POST">
+<form action="/GrProject/login_page.php" method="POST">
   <div class="imgcontainer">
     <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar"> -->
     <p>Parking Master</p>
