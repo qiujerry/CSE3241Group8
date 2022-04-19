@@ -111,8 +111,12 @@ insert into FEE (garage_ID, event_ID, fee)
 		(0003, 1001, 4.50), (0003, 1002, 2.99), (0003, 1003, 1.99);
 
 create user loginuser@'%' identified by 'phpwd';
-grant SELECT, INSERT on ParkingMaster.CUSTOMER, ParkingMaster.ADMINLOG to loginuser@'%';
+grant SELECT, INSERT on ParkingMaster.CUSTOMER to loginuser@'%';
+grant SELECT, INSERT on ParkingMaster.ADMINLOG to loginuser@'%';
 
 create user aduser@'%' identified by 'phpwd';
 grant all on ParkingMaster.* to aduser@'%';
+
+create user custuser@'%' identified by 'phpwd';
+grant all on ParkingMaster.* to custuser@'%';
 
