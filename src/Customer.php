@@ -2,7 +2,7 @@
 <body>
 <?php 
 
-	$con=mysqli_connect('localhost','root','******','ParkingMaster');
+	$con=mysqli_connect('localhost','custuser','phpwd','ParkingMaster');
 
 	if(isset($_POST['Submit'])) {
 	
@@ -108,7 +108,7 @@
                     else {
                           $successFlag = true;
                           //create reservation
-                          $user_ID = $_POST['user_ID'];
+                          $user_ID = $usrname;
 
                           //$user_ID = "mike13"; //DEBUGGING
 

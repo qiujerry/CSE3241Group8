@@ -5,6 +5,8 @@
 
 CREATE DATABASE ParkingMaster;
 
+use ParkingMaster;
+
 create table GARAGE (
 	garage_ID int NOT NULL,
 	name varchar(40) NOT NULL,

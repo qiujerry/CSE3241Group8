@@ -70,6 +70,16 @@ span.psw {
 
 <h2>Parking Master Login</h2>
 
+<div>
+  <?php
+    if(isset($_POST['inc']) && $_POST['inc']=='true') {
+      echo "Incorrect Username or Password <br>";
+    }
+
+  ?>
+
+</div>
+
 <form action="/login_page.php" method="POST">
   <div class="imgcontainer">
     <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar"> -->
@@ -83,7 +93,6 @@ span.psw {
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
 
-    <input type="submit">
         
     <button type="submit">Login</button>
     <label>
